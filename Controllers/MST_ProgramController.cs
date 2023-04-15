@@ -38,6 +38,19 @@ namespace ProgramListWebAPI.Controllers
 
             return program;
         }
+        // GET api/<MST_ProgramTopicController>/array
+        [HttpGet("{id}/{topic_name}")]
+        public ActionResult<List<MST_Program>> GetByName(string id, string topic_name)
+        {
+            return programListService.GETByName(id, topic_name);
+        }
+
+        // GET api/<MST_ProgramTopicController>/array
+        [HttpGet("problemcount/{topic_nameForCount}")]
+        public int GetCount(string topic_nameForCount)
+        {
+            return programListService.GETCOUNT(topic_nameForCount);
+        }
 
         // POST api/<MST_ProgramController>
         [HttpPost]

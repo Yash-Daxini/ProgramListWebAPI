@@ -28,17 +28,6 @@ namespace ProgramListWebAPI.Services
         {
             return _topic.Find(Topic => Topic.ID == id).FirstOrDefault();
         }
-
-        public List<MST_ProgramTopic> GETByName(string id , string topic_name)
-        {
-            return _topic.Find(Topic => Topic.Topic_Name.Equals(topic_name)).ToList();
-        }
-
-        public int GETCOUNT(string topic_name)
-        {
-            return (int)_topic.Find(Topic => Topic.Topic_Name.Equals(topic_name)).CountDocuments();
-        }
-
         public MST_ProgramTopic POST(MST_ProgramTopic topic)
         {
             _topic.InsertOne(topic);

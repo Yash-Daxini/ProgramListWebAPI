@@ -30,10 +30,18 @@ namespace ProgramListWebAPI.Services
         }
 
         public MST_Program GET(string id)
-        {
+        { 
             return _program.Find(program => program.ID == id).FirstOrDefault();
         }
+        public List<MST_Program> GETByName(string id, string topic_name)
+        {
+            return _program.Find(program => program.Program_Topic.Equals(topic_name)).ToList();
+        }
 
+        public int GETCOUNT(string topic_name)
+        {
+            return (int)_program.Find(program => program.Program_Topic.Equals(topic_name)).CountDocuments();
+        }
         public MST_Program POST(MST_Program program)
         {
             string topic = program.Program_Topic;
