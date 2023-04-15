@@ -17,6 +17,8 @@ builder.Services.AddScoped<IProgramListService, ProgramListService>();
 
 builder.Services.AddScoped<ITopicListService, TopicListService>();
 
+builder.Services.AddScoped<IUserService, UserService>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
