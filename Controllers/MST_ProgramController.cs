@@ -39,17 +39,31 @@ namespace ProgramListWebAPI.Controllers
             return program;
         }
         // GET api/<MST_ProgramTopicController>/array
-        [HttpGet("{id}/{topic_name}")]
-        public ActionResult<List<MST_Program>> GetByName(string id, string topic_name)
+        [HttpGet("programsByTopicName/{topic_name}")]
+        public ActionResult<List<MST_Program>> GETProgramByTopicName(string topic_name)
         {
-            return programListService.GETByName(id, topic_name);
+            return programListService.GETProgramByTopicName(topic_name);
         }
 
-        // GET api/<MST_ProgramTopicController>/array
-        [HttpGet("problemcount/{topic_nameForCount}")]
-        public int GetCount(string topic_nameForCount)
+        // GET api/<MST_ProgramController>/
+        [HttpGet("problemcount/")]
+        public ActionResult<List<POG_ProgramCount>> GETCountOfProgramByTopicName()
         {
-            return programListService.GETCOUNT(topic_nameForCount);
+            return programListService.GETCountOfProgramByTopicName();
+        }
+
+        // GET api/<MST_ProgramController>/array
+        [HttpGet("problemcount/{topic_name}")]
+        public int GETCountByTopicName(string topic_name)
+        {
+            return programListService.GETCountByTopicName(topic_name);
+        }
+        
+        // GET api/<MST_Program>/array/Easy
+        [HttpGet("getByFilter/{program_Topic=}/{program_Difficulty=}")]
+        public List<MST_Program> GETByFilter(string program_Topic = "all", string program_Difficulty = "all")
+        {
+            return programListService.GETByFilter(program_Topic, program_Difficulty);
         }
 
         // POST api/<MST_ProgramController>
