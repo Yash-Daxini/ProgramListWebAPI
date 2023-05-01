@@ -27,7 +27,7 @@ builder.Services.AddSwaggerGen();
 //To solve cors error
 builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
 {
-    build.WithOrigins("http://localhost:3000", "http://localhost:3001").AllowAnyMethod().AllowAnyHeader();
+    build.WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost").AllowAnyMethod().AllowAnyHeader();
 }));
 
 var app = builder.Build();
